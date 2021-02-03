@@ -1,4 +1,4 @@
-package com.example.journey.ui.gallery;
+package com.example.journey.ui.tasks;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,10 +21,12 @@ public class TasksFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         tasksViewModel =
                 new ViewModelProvider(this).get(TasksViewModel.class);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Tasks");
         View root = inflater.inflate(R.layout.fragment_tasks, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
+        final TextView textView = root.findViewById(R.id.text_tasks);
         tasksViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

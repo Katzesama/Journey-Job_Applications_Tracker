@@ -1,4 +1,4 @@
-package com.example.journey.ui.gallery;
+package com.example.journey.ui.tasks;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

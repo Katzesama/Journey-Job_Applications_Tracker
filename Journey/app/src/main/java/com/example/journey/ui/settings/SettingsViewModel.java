@@ -1,4 +1,4 @@
-package com.example.journey.ui.slideshow;
+package com.example.journey.ui.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

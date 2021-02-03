@@ -17,6 +17,13 @@
     <style name="Theme.Journey.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <!-- https://stackoverflow.com/questions/31626488/change-the-color-of-navigation-drawer-indicator-icon -->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/black</item>
     </style>
 
     <style name="Theme.Journey.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
