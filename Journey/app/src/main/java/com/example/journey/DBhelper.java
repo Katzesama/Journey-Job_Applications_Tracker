@@ -12,23 +12,42 @@ public class DBhelper extends SQLiteOpenHelper{
     private Context mContext;
     public final static int version = 1;
 
+    // Table names
     private static final String App_Table = "Application";
     private static final String Task_Table = "Task";
 
+    // Application Table columns
+    private static final String A_ID = "_id";
+    private static final String AppID = "appID";
+    private static final String Application = "application";
 
-    public DBhelper(Context context) {
+    // Task Table columns
+    private static final String T_ID = "_id";
+    private static final String TaskID = "taskID";
+    private static final String Task = "task";
+
+    private static DBhelper INSTANCE = null;
+
+    private DBhelper(Context context) {
         super(context, DB_NAME, null, version);
+    }
+
+    public static DBhelper getInstance(Context c) {
+        if (INSTANCE == null) {
+            INSTANCE = new DBhelper(c);
+        }
+        return(INSTANCE);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         //create application table
         String create_application_sql = "CREATE TABLE if not exists "+ App_Table +
-                "(_id integer primary key autoincrement, appid text, application text)";
+                "(_id integer primary key autoincrement, appID text, application text)";
         db.execSQL(create_application_sql);
         //create application table
         String create_task_sql = "CREATE TABLE if not exists Tasks"+ Task_Table +
-                "(_id integer primary key autoincrement, taskid text, task text)";
+                "(_id integer primary key autoincrement, taskID text, task text)";
         db.execSQL(create_task_sql);
 
     }
@@ -39,4 +58,35 @@ public class DBhelper extends SQLiteOpenHelper{
 
     }
 
+    public static String getApp_Table() {
+        return App_Table;
+    }
+
+    public static String getTask_Table() {
+        return Task_Table;
+    }
+
+    public static String getAId() {
+        return A_ID;
+    }
+
+    public static String getAppID() {
+        return AppID;
+    }
+
+    public static String getApplication() {
+        return Application;
+    }
+
+    public static String getTId() {
+        return T_ID;
+    }
+
+    public static String getTaskID() {
+        return TaskID;
+    }
+
+    public static String getTask() {
+        return Task;
+    }
 }

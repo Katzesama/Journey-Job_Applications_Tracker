@@ -16,7 +16,7 @@ public class DBManager {
 
     // reference: https://blog.csdn.net/cunchi4221/article/details/107476789
     private DBManager(Context c) {
-        dbhelper = new DBhelper(c);
+        dbhelper = DBhelper.getInstance(c);
         database = dbhelper.getWritableDatabase();
     }
 
@@ -38,17 +38,22 @@ public class DBManager {
         //database.insert(DBhelper.TABLE_NAME, null, contentValue);
     }
 
-    //public Cursor fetch()
-    public void fetch(){
-        //String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SUBJECT, DatabaseHelper.DESC };
-        //Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
-        /*
+    public Cursor fetchTasks(){
+        String[] columns = new String[] { dbhelper.getTId(), dbhelper.getTaskID(), dbhelper.getTask() };
+        Cursor cursor = database.query(dbhelper.getTask_Table(), columns, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
         return cursor;
+    }
 
-         */
+    public Cursor fetchApplications(){
+        String[] columns = new String[] { dbhelper.getAId(), dbhelper.getAppID(), dbhelper.getApplication() };
+        Cursor cursor = database.query(dbhelper.getApp_Table(), columns, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 
     public int update(long _id, String name, String desc) {
