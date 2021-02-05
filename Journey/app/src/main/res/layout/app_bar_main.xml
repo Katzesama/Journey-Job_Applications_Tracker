@@ -18,7 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
             android:theme="@style/actionButtonStyle"
-            app:popupTheme="@style/Theme.Journey.PopupOverlay"
+            app:popupTheme="@style/OverflowMenu"
             app:subtitleTextColor="#292727"
             app:titleTextColor="@color/black" />
 

@@ -14,8 +14,8 @@
     <string name="menu_tasks">Tasks</string>
     <string name="menu_settings">Settings</string>
     <string name="action_select">Select</string>
-    <string name="action_filter_by_company">Filter by Company</string>
-    <string name="action_filter_by_status">Filter by Status</string>
+    <string name="action_filter_by_company">Company</string>
+    <string name="action_filter_by_status">Status</string>
     <string name="action_sort_newest">Newest</string>
     <string name="action_sort_oldest">Oldest</string>
     <string name="action_more">More</string>

@@ -30,6 +30,12 @@
 
     <style name="Theme.Journey.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="OverflowMenu" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
     <!-- This style is where you define the tint color of your overflow menu button -->
     <style name="actionButtonStyle" parent="@style/Widget.AppCompat.ActionButton">
