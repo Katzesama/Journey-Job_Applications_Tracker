@@ -6,6 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.journey.ApplicationInfoActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.content.Intent;
+
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.journey.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeFragment extends Fragment {
 
@@ -34,4 +40,19 @@ public class HomeFragment extends Fragment {
         });
         return root;
     }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        // Clicking the add button will jump to the add application activity
+        super.onActivityCreated(savedInstanceState);
+        FloatingActionButton fab = ((AppCompatActivity) getActivity()).findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ApplicationInfoIntent = new Intent(((AppCompatActivity) getActivity()), ApplicationInfoActivity.class);
+                getActivity().startActivity(ApplicationInfoIntent);
+            }
+        });
+    }
+
 }

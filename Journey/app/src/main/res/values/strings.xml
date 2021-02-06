@@ -19,4 +19,8 @@
     <string name="action_sort_newest">Newest</string>
     <string name="action_sort_oldest">Oldest</string>
     <string name="action_more">More</string>
+    <string name="title_activity_application_info">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

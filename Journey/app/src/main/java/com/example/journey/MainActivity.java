@@ -1,10 +1,11 @@
 package com.example.journey;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,14 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -58,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // reference:https://cloud.tencent.com/developer/article/1726308
-    // Display the icons when options menu opened
+    /**
+     * Display the icons when options menu opened
+     */
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
         if (menu != null) {
@@ -73,6 +69,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.onMenuOpened(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        // Do the related action when the item is selected
+        switch (item.getItemId()) {
+            case R.id.action_select:
+                return true;
+            case R.id.action_filter_company:
+                return true;
+            case R.id.action_filter_status:
+                return true;
+            case R.id.action_sort_newest:
+                return true;
+            case R.id.action_sort_oldest:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
