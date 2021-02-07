@@ -14,7 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Journey.NoActionBar">
+    <style name="Theme.Journey.LightTitleBar" parent="@style/Theme.AppCompat.Light">
+    </style>
+
+    <style name="Theme.Journey.NoActionBar" parent="@style/Theme.AppCompat.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>

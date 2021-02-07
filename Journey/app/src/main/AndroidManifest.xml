@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.journey">
+    package="com.example.journey" >
 
     <application
         android:allowBackup="true"
@@ -8,14 +8,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Journey">
+        android:theme="@style/Theme.Journey" >
         <activity
-            android:name=".ApplicationInfoActivity"
-            android:label="@string/title_activity_application_info"></activity>
+            android:name=".AddApplicationActivity"
+            android:label="Add Application"
+            android:theme="@style/Theme.Journey.LightTitleBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Journey.NoActionBar">
+            android:theme="@style/Theme.Journey.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

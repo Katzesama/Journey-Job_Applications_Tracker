@@ -2,9 +2,11 @@ package com.example.journey.ui.tasks;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,5 +36,21 @@ public class TasksFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+// You can hide the state of the menu item here if you call getActivity().supportInvalidateOptionsMenu(); somewhere in your code
+        MenuItem companyItem = menu.findItem(R.id.action_filter_company);
+        companyItem.setVisible(false);
+        MenuItem statusItem = menu.findItem(R.id.action_filter_status);
+        statusItem.setVisible(false);
     }
 }

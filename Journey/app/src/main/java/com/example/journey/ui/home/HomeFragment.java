@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.journey.ApplicationInfoActivity;
+import com.example.journey.AddApplicationActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.content.Intent;
 
@@ -19,7 +19,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.journey.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeFragment extends Fragment {
 
@@ -49,7 +48,7 @@ public class HomeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ApplicationInfoIntent = new Intent(((AppCompatActivity) getActivity()), ApplicationInfoActivity.class);
+                Intent ApplicationInfoIntent = new Intent(((AppCompatActivity) getActivity()), AddApplicationActivity.class);
                 getActivity().startActivity(ApplicationInfoIntent);
             }
         });
