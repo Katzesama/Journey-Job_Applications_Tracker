@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Journey" >
         <activity
-            android:name=".AddApplicationActivity"
+            android:name=".ApplicationInfoActivity"
             android:label="Add Application"
             android:theme="@style/Theme.Journey.LightTitleBar" />
         <activity

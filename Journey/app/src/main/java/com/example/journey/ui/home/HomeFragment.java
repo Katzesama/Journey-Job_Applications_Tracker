@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.journey.AddApplicationActivity;
+import com.example.journey.ApplicationInfoActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.content.Intent;
 
@@ -48,7 +48,9 @@ public class HomeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ApplicationInfoIntent = new Intent(((AppCompatActivity) getActivity()), AddApplicationActivity.class);
+                Intent ApplicationInfoIntent = new Intent(((AppCompatActivity) getActivity()), ApplicationInfoActivity.class);
+                String fragmentToDisplay = "Add";
+                ApplicationInfoIntent.putExtra("fragmentToDisplay", fragmentToDisplay);
                 getActivity().startActivity(ApplicationInfoIntent);
             }
         });

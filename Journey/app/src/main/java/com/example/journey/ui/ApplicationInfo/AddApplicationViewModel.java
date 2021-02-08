@@ -1,14 +1,14 @@
-package com.example.journey.ui.notifications;
+package com.example.journey.ui.ApplicationInfo;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class AddApplicationViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public AddApplicationViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }
