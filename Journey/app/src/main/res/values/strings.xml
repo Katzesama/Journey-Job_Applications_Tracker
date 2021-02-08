@@ -27,4 +27,9 @@
     <string name="title_save">Save</string>
     <string name="title_edit">Edit</string>
     <string name="title_tasks">Tasks</string>
+    <string name="job_title">Job Title</string>
+    <string name="title_company">Company</string>
+    <string name="title_expected_salary">Expected Salary</string>
+    <string name="title_post_url">Post Url</string>
+    <string name="title_location">Location</string>
 </resources>

@@ -22,20 +22,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class AddApplicationFragment extends Fragment {
 
-    private AddApplicationViewModel addApplicationViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        addApplicationViewModel =
-                new ViewModelProvider(this).get(AddApplicationViewModel.class);
         View root = inflater.inflate(R.layout.fragment_application_add, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        addApplicationViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 
