@@ -32,4 +32,5 @@
     <string name="title_expected_salary">Expected Salary</string>
     <string name="title_post_url">Post Url</string>
     <string name="title_location">Location</string>
+    <string name="title_job_description">Job Description</string>
 </resources>

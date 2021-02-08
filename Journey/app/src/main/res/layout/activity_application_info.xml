@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     android:background="#FDFDFD"
     android:paddingTop="5dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
     android:visibility="visible"
     tools:context=".ApplicationInfoActivity">
 
@@ -20,7 +22,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_empty"/>
 
     <Button
         android:id="@+id/save_button"

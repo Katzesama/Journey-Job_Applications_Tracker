@@ -14,10 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Journey.LightTitleBar" parent="@style/Theme.AppCompat.Light">
+    <style name="Theme.Journey.LightTitleBar" parent="@style/Theme.MaterialComponents.Light">
+        <item name="android:background">@color/white</item>
     </style>
 
-    <style name="Theme.Journey.NoActionBar" parent="@style/Theme.AppCompat.Light">
+    <style name="Theme.Journey.NoActionBar" parent="@style/Theme.MaterialComponents.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
@@ -29,11 +30,11 @@
         <item name="color">@android:color/black</item>
     </style>
 
-    <style name="Theme.Journey.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Journey.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
-    <style name="Theme.Journey.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Journey.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
-    <style name="OverflowMenu" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+    <style name="OverflowMenu" parent="ThemeOverlay.MaterialComponents.Light">
         <item name="android:paddingStart">0dp</item>
         <item name="android:paddingEnd">0dp</item>
         <item name="android:textColor">@color/black</item>
@@ -44,4 +45,5 @@
     <style name="actionButtonStyle" parent="@style/Widget.AppCompat.ActionButton">
         <item name="android:tint">@color/black</item>
     </style>
+
 </resources>
