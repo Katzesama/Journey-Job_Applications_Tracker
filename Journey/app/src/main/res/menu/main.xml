@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_select"
+        android:icon="@drawable/ic_box"
+        android:title="@string/action_select" />
+    <item
+        android:id="@+id/action_filter_company"
+        android:icon="@drawable/ic_business"
+        android:title="@string/action_filter_by_company" />
+    <item
+        android:id="@+id/action_filter_status"
+        android:icon="@drawable/ic_tune"
+        android:title="@string/action_filter_by_status" />
+    <item
+        android:id="@+id/action_sort_newest"
+        android:icon="@drawable/ic_colockwise"
+        android:title="@string/action_sort_newest" />
+    <item
+        android:id="@+id/action_sort_oldest"
+        android:icon="@drawable/ic_counterwise"
+        android:title="@string/action_sort_oldest" />
+
+</menu>
