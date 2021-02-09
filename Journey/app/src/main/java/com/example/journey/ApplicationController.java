@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 
 public class ApplicationController {
     private static ApplicationController INSTANCE = null;
-    private Application application;
+    private Application currentApplication;
 
     private ApplicationController() {};
 
@@ -17,12 +17,12 @@ public class ApplicationController {
     }
 
     public void createApplication(String jobTitle, String company, String expectedSalary, String location, String description){
-        application = new Application(jobTitle, company, expectedSalary, location, description);
+        currentApplication = new Application(jobTitle, company, expectedSalary, location, description);
     }
 
     public void saveNewApplication(Context c){
         Gson gson = new Gson();
-        String jsonApplication = gson.toJson(application);
-        DBManager.getInstance(c).insertApplication(application.getId(), jsonApplication);
+        String jsonApplication = gson.toJson(currentApplication);
+        DBManager.getInstance(c).insertApplication(currentApplication.getId(), jsonApplication);
     }
 }

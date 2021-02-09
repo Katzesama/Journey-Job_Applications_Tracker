@@ -1,7 +1,10 @@
 package com.example.journey;
 
+import java.util.ArrayList;
+
 public class TaskController {
     private static TaskController INSTANCE = null;
+    private ArrayList<Task> taskList;
 
     private TaskController() {};
 
