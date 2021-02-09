@@ -29,9 +29,16 @@ public class Application {
 
     private String id;
 
-    public Application(){
-        this.appliedDate = LocalDate.now();
-        this.id = UUID.randomUUID().toString();
+    public Application(String jobTitle, String company, String expectedSalary, String location, String description) {
+        this.jobTitle = jobTitle;
+        Company = company;
+        this.expectedSalary = expectedSalary;
+        Rating = 0;
+        Location = location;
+        //Status = status;
+        appliedDate = LocalDate.now();
+        id = UUID.randomUUID().toString();
+        Description = description;
     }
 
     /**
@@ -56,7 +63,7 @@ public class Application {
     }
 
     /**
-     * @param Company A job title for a job application
+     * @param company A job title for a job application
      */
     public void setCompany(String company) {
         Company = company;

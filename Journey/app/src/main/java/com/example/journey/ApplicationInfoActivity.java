@@ -45,4 +45,5 @@ public class ApplicationInfoActivity extends AppCompatActivity {
 
     }
 
+
 }

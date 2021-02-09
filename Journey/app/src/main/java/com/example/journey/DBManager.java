@@ -10,8 +10,6 @@ public class DBManager {
     private static DBManager INSTANCE = null;
     private static DBhelper dbhelper;
 
-    private Context context;
-
     private SQLiteDatabase database;
 
     // reference: https://blog.csdn.net/cunchi4221/article/details/107476789
@@ -22,7 +20,7 @@ public class DBManager {
 
     public static DBManager getInstance(Context c) {
         if (INSTANCE == null) {
-            INSTANCE = new DBManager(c);
+            INSTANCE = new DBManager(c.getApplicationContext());
         }
         return(INSTANCE);
     }
@@ -31,7 +29,14 @@ public class DBManager {
         dbhelper.close();
     }
 
-    public void insert(String name, String desc) {
+    public void insertApplication(String id, String object) {
+        ContentValues contentValue = new ContentValues();
+        contentValue.put(DBhelper.getAppID(), id);
+        contentValue.put(DBhelper.getApplication(), object);
+        database.insert(DBhelper.getTask_Table(), null, contentValue);
+    }
+
+    public void insertTask(String name, String desc) {
         ContentValues contentValue = new ContentValues();
         //contentValue.put(DBhelper.SUBJECT, name);
         //contentValue.put(DBhelper.DESC, desc);

@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:hint="@string/job_title"
+            android:hint="Job Title*"
+            android:inputType="text"
             android:minEms="15" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,7 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:hint="@string/title_company"
+            android:hint="Company*"
+            android:inputType="text"
             android:minEms="15"
             android:outlineProvider="background" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -61,8 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:minEms="15"
-            android:hint="@string/title_expected_salary" />
+            android:hint="@string/title_expected_salary"
+            android:inputType="text"
+            android:minEms="15" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -80,8 +83,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:minEms="15"
-            android:hint="@string/title_post_url" />
+            android:hint="@string/title_post_url"
+            android:inputType="textUri"
+            android:minEms="15" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -99,8 +103,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:minEms="15"
-            android:hint="@string/title_location" />
+            android:hint="@string/title_location"
+            android:inputType="text"
+            android:minEms="15" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -120,6 +125,7 @@
             android:layout_centerVertical="true"
             android:gravity="top|left"
             android:hint="@string/title_job_description"
+            android:inputType="text"
             android:lines="5"
             android:scrollbars="vertical" />
     </com.google.android.material.textfield.TextInputLayout>
