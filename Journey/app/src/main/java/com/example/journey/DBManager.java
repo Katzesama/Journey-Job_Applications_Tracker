@@ -36,11 +36,11 @@ public class DBManager {
         database.insert(DBhelper.getTask_Table(), null, contentValue);
     }
 
-    public void insertTask(String name, String desc) {
+    public void insertTask(String id, String object) {
         ContentValues contentValue = new ContentValues();
-        //contentValue.put(DBhelper.SUBJECT, name);
-        //contentValue.put(DBhelper.DESC, desc);
-        //database.insert(DBhelper.TABLE_NAME, null, contentValue);
+        contentValue.put(DBhelper.getTaskID(), id);
+        contentValue.put(DBhelper.getTask(), object);
+        database.insert(DBhelper.getTask_Table(), null, contentValue);
     }
 
     public Cursor fetchTasks(){
@@ -61,20 +61,28 @@ public class DBManager {
         return cursor;
     }
 
-    public int update(long _id, String name, String desc) {
-        /*
+    public int updateApplication(String id, String object) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.SUBJECT, name);
-        contentValues.put(DatabaseHelper.DESC, desc);
-        int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
+        contentValues.put(dbhelper.getAppID(), id);
+        contentValues.put(dbhelper.getApplication(), object);
+        int i = database.update(dbhelper.getApp_Table(), contentValues, dbhelper.getAppID() + " = " + id, null);
         return i;
-
-         */
-        return 1;
     }
 
-    public void delete(long _id) {
-        // database.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper._ID + "=" + _id, null);
+    public int updateTask(String id, String object) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(dbhelper.getTaskID(), id);
+        contentValues.put(dbhelper.getTask(), object);
+        int i = database.update(dbhelper.getTask_Table(), contentValues, dbhelper.getTaskID() + " = " + id, null);
+        return i;
+    }
+
+    public void deleteApplication(String id) {
+        database.delete(dbhelper.getApp_Table(), dbhelper.getAppID() + "=" + id, null);
+    }
+
+    public void deleteTask(String id) {
+        database.delete(dbhelper.getTask_Table(), dbhelper.getTaskID() + "=" + id, null);
     }
 
 

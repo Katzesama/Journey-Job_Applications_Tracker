@@ -3,9 +3,12 @@ package com.example.journey;
 import android.content.Context;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class ApplicationController {
     private static ApplicationController INSTANCE = null;
     private Application currentApplication;
+    private ArrayList<Application> applicationList;
 
     private ApplicationController() {};
 
