@@ -80,6 +80,6 @@ public class AddApplicationFragment extends Fragment {
         String url = postUrl.getText().toString();
         String descr = description.getText().toString();
         controller.createApplication(title, Company, salary, url, descr);
-        controller.saveNewApplication(getActivity());
+        controller.saveNewApplication(getActivity().getApplicationContext());
     }
 }

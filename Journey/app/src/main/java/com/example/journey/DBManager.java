@@ -15,14 +15,18 @@ public class DBManager {
     // reference: https://blog.csdn.net/cunchi4221/article/details/107476789
     private DBManager(Context c) {
         dbhelper = DBhelper.getInstance(c);
-        database = dbhelper.getWritableDatabase();
     }
 
     public static DBManager getInstance(Context c) {
         if (INSTANCE == null) {
-            INSTANCE = new DBManager(c.getApplicationContext());
+            INSTANCE = new DBManager(c);
         }
         return(INSTANCE);
+    }
+
+    public DBManager open() throws SQLException {
+        database = dbhelper.getWritableDatabase();
+        return this;
     }
 
     public void close() {
