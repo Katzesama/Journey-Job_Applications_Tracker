@@ -1,6 +1,7 @@
 package com.example.journey;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import org.junit.After;
 import org.junit.Before;
@@ -32,42 +33,53 @@ public class DBManagerTest {
 
     @Test
     public void InsertApplication() throws Exception{
-        assertNotNull(dbmanager);
+        dbmanager.insertApplication("UUID01", "application01");
+        Cursor cursor = dbmanager.fetchApplications();
+        assertNotNull(cursor);
+        assertEquals("UUID01", cursor.getString(cursor.getColumnIndex("appID")));
     }
 
     @Test
     public void InsertTask() throws Exception{
-        assertNotNull(dbmanager);
+        dbmanager.insertTask("UUID01", "task01");
+        Cursor cursor = dbmanager.fetchTasks();
+        assertNotNull(cursor);
+        assertEquals("UUID01", cursor.getString(cursor.getColumnIndex("taskID")));
     }
 
-    @Test
-    public void FetchApplication() throws Exception{
-        assertNotNull(dbmanager);
-    }
-
-    @Test
-    public void FetchTask() throws Exception{
-        assertNotNull(dbmanager);
-    }
 
     @Test
     public void DeleteApplication() throws Exception{
-        assertNotNull(dbmanager);
+        dbmanager.insertApplication("UUID01", "application01");
+        dbmanager.deleteApplication("UUID01");
+        Cursor cursor = dbmanager.fetchApplications();
+        assertNull(cursor);
     }
 
     @Test
     public void DeleteTask() throws Exception{
-        assertNotNull(dbmanager);
+        dbmanager.insertTask("UUID01", "task01");
+        dbmanager.deleteTask("UUID01");
+        Cursor cursor = dbmanager.fetchTasks();
+        assertNull(cursor);
     }
 
     @Test
     public void UpdateApplication() throws Exception{
-        assertNotNull(dbmanager);
+        dbmanager.insertApplication("UUID01", "application01");
+        dbmanager.updateApplication("UUID01","application01modified!");
+        Cursor cursor = dbmanager.fetchApplications();
+        assertNotNull(cursor);
+        assertEquals("UUID01", cursor.getString(cursor.getColumnIndex("application01modified!")));
     }
 
     @Test
     public void UpdateTask() throws Exception{
-        assertNotNull(dbmanager);
+        dbmanager.insertTask("UUID01", "task01");
+        dbmanager.updateTask("UUID01", "task01modified!");
+        Cursor cursor = dbmanager.fetchTasks();
+        assertNotNull(cursor);
+        assertEquals("UUID01", cursor.getString(cursor.getColumnIndex("task01modified!")));
     }
 }
 

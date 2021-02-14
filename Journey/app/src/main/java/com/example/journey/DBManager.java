@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 public class DBManager {
     private static DBManager INSTANCE = null;
     private static DBhelper dbhelper;

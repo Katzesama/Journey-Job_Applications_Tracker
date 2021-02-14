@@ -43,11 +43,11 @@ public class DBhelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         //create application table
         String create_application_sql = "CREATE TABLE if not exists "+ App_Table +
-                "(_id integer primary key autoincrement, appID text, application text)";
+                "(_id integer primary key autoincrement, appID text unique, application text)";
         db.execSQL(create_application_sql);
         //create application table
         String create_task_sql = "CREATE TABLE if not exists Tasks"+ Task_Table +
-                "(_id integer primary key autoincrement, taskID text, task text)";
+                "(_id integer primary key autoincrement, taskID text unique, task text)";
         db.execSQL(create_task_sql);
 
     }
