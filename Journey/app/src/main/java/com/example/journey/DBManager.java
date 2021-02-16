@@ -39,7 +39,7 @@ public class DBManager {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DBhelper.getAppID(), id);
         contentValue.put(DBhelper.getApplication(), object);
-        database.insert(DBhelper.getTask_Table(), null, contentValue);
+        database.insert(DBhelper.getApp_Table(), null, contentValue);
     }
 
     public void insertTask(String id, String object) {
@@ -71,7 +71,7 @@ public class DBManager {
         ContentValues contentValues = new ContentValues();
         contentValues.put(dbhelper.getAppID(), id);
         contentValues.put(dbhelper.getApplication(), object);
-        int i = database.update(dbhelper.getApp_Table(), contentValues, dbhelper.getAppID() + " = " + id, null);
+        int i = database.update(dbhelper.getApp_Table(), contentValues, dbhelper.getAppID() + " = '" + id + "'", null);
         return i;
     }
 
@@ -79,16 +79,16 @@ public class DBManager {
         ContentValues contentValues = new ContentValues();
         contentValues.put(dbhelper.getTaskID(), id);
         contentValues.put(dbhelper.getTask(), object);
-        int i = database.update(dbhelper.getTask_Table(), contentValues, dbhelper.getTaskID() + " = " + id, null);
+        int i = database.update(dbhelper.getTask_Table(), contentValues, dbhelper.getTaskID() + " = '" + id + "'", null);
         return i;
     }
 
     public void deleteApplication(String id) {
-        database.delete(dbhelper.getApp_Table(), dbhelper.getAppID() + "=" + id, null);
+        database.delete(dbhelper.getApp_Table(), dbhelper.getAppID() + "= '" + id + "'", null);
     }
 
     public void deleteTask(String id) {
-        database.delete(dbhelper.getTask_Table(), dbhelper.getTaskID() + "=" + id, null);
+        database.delete(dbhelper.getTask_Table(), dbhelper.getTaskID() + "= '" + id + "'", null);
     }
 
 

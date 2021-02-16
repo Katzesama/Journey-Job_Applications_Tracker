@@ -2,32 +2,36 @@ package com.example.journey;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
+
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
 
 @RunWith(AndroidJUnit4.class)
-public class DBManagerTest {
+public class DBManagerTest{
 
     private DBManager dbmanager;
 
     @Before
-    public void Setup(){
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+    public void setDbmanager(){
+        Context appContext = ApplicationProvider.getApplicationContext();
+        // appContext.deleteDatabase(DBhelper.DB_Name);
         dbmanager = DBManager.getInstance(appContext);
         dbmanager.open();
     }
 
     @After
-    public void CloseDB() throws Exception{
+    public void closeDbmanager() throws IOException{
         dbmanager.close();
     }
 
@@ -50,18 +54,16 @@ public class DBManagerTest {
 
     @Test
     public void DeleteApplication() throws Exception{
-        dbmanager.insertApplication("UUID01", "application01");
         dbmanager.deleteApplication("UUID01");
         Cursor cursor = dbmanager.fetchApplications();
-        assertNull(cursor);
+        assertEquals(cursor.getCount(), 0);
     }
 
     @Test
     public void DeleteTask() throws Exception{
-        dbmanager.insertTask("UUID01", "task01");
         dbmanager.deleteTask("UUID01");
         Cursor cursor = dbmanager.fetchTasks();
-        assertNull(cursor);
+        assertEquals(cursor.getCount(), 0);
     }
 
     @Test
@@ -70,7 +72,7 @@ public class DBManagerTest {
         dbmanager.updateApplication("UUID01","application01modified!");
         Cursor cursor = dbmanager.fetchApplications();
         assertNotNull(cursor);
-        assertEquals("UUID01", cursor.getString(cursor.getColumnIndex("application01modified!")));
+        assertEquals("application01modified!", cursor.getString(cursor.getColumnIndex("application")));
     }
 
     @Test
@@ -79,7 +81,7 @@ public class DBManagerTest {
         dbmanager.updateTask("UUID01", "task01modified!");
         Cursor cursor = dbmanager.fetchTasks();
         assertNotNull(cursor);
-        assertEquals("UUID01", cursor.getString(cursor.getColumnIndex("task01modified!")));
+        assertEquals("task01modified!", cursor.getString(cursor.getColumnIndex("task")));
     }
 }
 

@@ -8,7 +8,7 @@ public class DBhelper extends SQLiteOpenHelper{
 
     // reference: https://blog.csdn.net/zgljl2012/article/details/47055093
 
-    private static final String DB_NAME = "jobTracker.db";//数据库文件名
+    public static final String DB_NAME = "jobTracker.db";//数据库文件名
     private Context mContext;
     public final static int version = 1;
 
@@ -42,13 +42,13 @@ public class DBhelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         //create application table
+        String create_task_sql = "CREATE TABLE if not exists "+ Task_Table +
+                "(_id integer primary key autoincrement, taskID text unique, task text)";
+        db.execSQL(create_task_sql);
+        //create application table
         String create_application_sql = "CREATE TABLE if not exists "+ App_Table +
                 "(_id integer primary key autoincrement, appID text unique, application text)";
         db.execSQL(create_application_sql);
-        //create application table
-        String create_task_sql = "CREATE TABLE if not exists Tasks"+ Task_Table +
-                "(_id integer primary key autoincrement, taskID text unique, task text)";
-        db.execSQL(create_task_sql);
 
     }
 
@@ -89,4 +89,6 @@ public class DBhelper extends SQLiteOpenHelper{
     public static String getTask() {
         return Task;
     }
+
+    public static String getDbName(){return DB_NAME;}
 }
