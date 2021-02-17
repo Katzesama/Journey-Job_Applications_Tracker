@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 
 public class ApplicationInfoActivity extends AppCompatActivity {
+    private Fragment addFragment = new AddApplicationFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +26,10 @@ public class ApplicationInfoActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         String fragmentToDisplay = getIntent().getStringExtra("fragmentToDisplay");
-        Fragment selectedFragment;
         switch (fragmentToDisplay) {
             case "Add":
-                selectedFragment = new AddApplicationFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, selectedFragment);
+                transaction.replace(R.id.nav_host_fragment, addFragment);
                 transaction.commit();
                 break;
             default:

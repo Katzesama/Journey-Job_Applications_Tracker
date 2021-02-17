@@ -1,5 +1,9 @@
 package com.example.journey;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.util.ArrayList;
 import java.time.LocalDate;;
 import java.util.UUID;
@@ -10,13 +14,13 @@ import java.util.UUID;
  * Created by Iris on 2020/1/27.
  */
 public class Application {
-    private static final int MONDAY = 0;
-    private static final int TUESDAY = 1;
-    private static final int WEDNESDAY = 2;
-    private static final int THURSDAY = 3;
-    private static final int FRIDAY = 4;
-    private static final int SATURDAY = 5;
-    private static final int SUNDAY = 6;
+    public static final int MONDAY = 0;
+    public static final int TUESDAY = 1;
+    public static final int WEDNESDAY = 2;
+    public static final int THURSDAY = 3;
+    public static final int FRIDAY = 4;
+    public static final int SATURDAY = 5;
+    public static final int SUNDAY = 6;
 
     private String jobTitle;
     private String Company;
@@ -29,6 +33,7 @@ public class Application {
 
     private String id;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Application(String jobTitle, String company, String expectedSalary, String location, String description) {
         this.jobTitle = jobTitle;
         Company = company;

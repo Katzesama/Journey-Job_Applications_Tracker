@@ -12,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.journey.Application;
 import com.example.journey.ApplicationController;
-import com.example.journey.DBManager;
 import com.example.journey.MainActivity;
 import com.example.journey.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -45,8 +43,9 @@ public class AddApplicationFragment extends Fragment {
         Button saveButton = ((AppCompatActivity) getActivity()).findViewById(R.id.save_button);
         saveButton.setVisibility(View.VISIBLE);
         saveButton.setOnClickListener((View.OnClickListener) view -> {
-            if (checkRequiredField()) {
+            if (checkRequiredFields()) {
                 saveApplication();
+                clearAllFields();
                 Intent intent = new Intent(((AppCompatActivity) getActivity()), MainActivity.class);
                 getActivity().startActivity(intent);
             } else{
@@ -59,7 +58,7 @@ public class AddApplicationFragment extends Fragment {
      *
      * @return check indicator if all the required fields are filled
      */
-    private boolean checkRequiredField() {
+    private boolean checkRequiredFields() {
         boolean check = true;
         if (jobTitle.getText().toString().trim().isEmpty()){
             jobTitle.setError("Job title required");
@@ -81,5 +80,13 @@ public class AddApplicationFragment extends Fragment {
         String descr = description.getText().toString();
         controller.createApplication(title, Company, salary, url, descr);
         controller.saveNewApplication(getActivity().getApplicationContext());
+    }
+
+    private void clearAllFields(){
+        jobTitle.getText().clear();
+        company.getText().clear();
+        expectedSalary.getText().clear();
+        postUrl.getText().clear();
+        description.getText().clear();
     }
 }
