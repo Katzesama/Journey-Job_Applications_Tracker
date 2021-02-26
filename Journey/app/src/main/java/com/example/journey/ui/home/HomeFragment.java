@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.journey.Application;
 import com.example.journey.ApplicationInfoActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.content.Intent;
@@ -17,26 +18,32 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.journey.R;
 
-public class HomeFragment extends Fragment {
+import java.util.ArrayList;
 
-    private HomeViewModel homeViewModel;
+public class HomeFragment extends Fragment {
+    private RecyclerView recyclerView;
+    private LinearLayoutManager linearLayoutManager;
+    private ApplicationListAdapter adapter;
+    private ArrayList<Application> adapterList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Applications");
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        // Set Recycle View here
+        adapterList = new ArrayList<>();
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerview);
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        adapter = new ApplicationListAdapter(adapterList, getActivity());
+        recyclerView.setAdapter(adapter);
+
         return root;
     }
 
