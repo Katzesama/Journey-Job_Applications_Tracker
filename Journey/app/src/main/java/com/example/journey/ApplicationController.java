@@ -35,6 +35,7 @@ public class ApplicationController {
         Cursor cursor = DBManager.getInstance(c).fetchApplications();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void createApplication(String jobTitle, String company, String expectedSalary, String location, String description){
         currentApplication = new Application(jobTitle, company, expectedSalary, location, description);
     }
@@ -93,12 +94,12 @@ public class ApplicationController {
                         return a1.getAppliedDate().isAfter(a2.getAppliedDate()) ? 1:0;
                     }
                 });
-            case filterStatus:
+            case Oldest:
                 Collections.sort(applicationList, new Comparator<Application>() {
                     @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public int compare(Application a1, Application a2) {
-                        return a1.getAppliedDate().isAfter(a2.getAppliedDate()) ? 1:0;
+                        return a1.getAppliedDate().isBefore(a2.getAppliedDate()) ? 1:0;
                     }
                 });
             default:
