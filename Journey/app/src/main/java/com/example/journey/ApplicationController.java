@@ -46,16 +46,23 @@ public class ApplicationController {
         DBManager.getInstance(c).insertApplication(currentApplication.getId(), jsonApplication);
     }
 
-    public void deleteApplications(){
-
+    public void deleteApplications(ArrayList<Integer> positions, Context c){
+        for (int index: positions){
+            Application removeItem = applicationList.get(index);
+            applicationList.remove(index);
+            DBManager.getInstance(c).deleteApplication(removeItem.getId());
+        }
     }
 
-    public void updateApplication(){
-
+    public void updateApplication(int position, Context c, Application application){
+        applicationList.set(position, application);
+        Gson gson = new Gson();
+        String jsonApplication = gson.toJson(application);
+        DBManager.getInstance(c).updateApplication(application.getId(), jsonApplication);
     }
 
-    public void getApplication(){
-
+    public void getApplication(int position){
+        applicationList.get(position);
     }
 
     public ArrayList<Application> getAllApplicationList(){
